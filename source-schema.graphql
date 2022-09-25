@@ -1,0 +1,5 @@
+`Ceramic `
+type Post @createModel (accountRelation: LIST, description: "Description") {
+    text: String @string(maxLength: 5000)
+}
+

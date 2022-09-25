@@ -1,0 +1,20 @@
+type Profile @createModel(accountRelation: SINGLE, description: "Donors profile ") {
+    displayName: String! @string(minLength: 3, maxLength: 50)
+    campains: [Campaign] @list(maxLength: 900)
+    likes: [Liked] @list(maxLength: 20)
+    uid: String! @string(minLength: 10, maxLength: 100)
+    wallet: String! @string(minLength: 10, maxLength: 100)
+    name: String! @string(minLength: 10, maxLength: 100)
+}
+
+type Liked {
+    name: String @string(maxLength: 20)
+    campaign: ID @string(maxLength: 20)
+}
+
+type Campaign {
+    id: String @string(minLength: 1, maxLength: 50)
+    campaign: ID @string(maxLength: 20)
+}
+
+
