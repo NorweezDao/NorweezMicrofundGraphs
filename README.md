@@ -1,6 +1,8 @@
-# NorweezMicrofundGraphs
+<h1 align="center">Norweez Microfund Graphs</h1>
 
-How to install Ceramic Cli and Launch the Daemon
+
+
+### How to install Ceramic Cli and Launch the Daemon
 
 
 Recommend use nvm
@@ -8,7 +10,7 @@ Recommend use nvm
 Node.js v14, and Npm v6.
 
 
-In my case my env was MocOs Intel Because on Docker and arm64 have some strange issues
+In my case my the used env was MacOs Intel Because on Docker and arm64 have some strange issues
 node -v v16.15.1
 npm -v 8.19.2
 
@@ -59,4 +61,25 @@ composedb did:generate-private-key
 composedb composite:create campaigns-schema.graphql --output=campaigns.json --did-private-key='<YOUR_KEY>' --ceramic-url=http://localhost:7007
 ```
 
-* 
+* Deploy a Composite 
+```
+composedb composite:deploy campaigns.json --ceramic-url=http://localhost:7007
+```
+
+* Check the composite 
+```
+composedb composite:from-model campaigns.json 
+```
+
+* Import model form composite 
+```
+composedb composite:from-model <id> --ceramic-url=http://localhost:7007 --output=my-first-composite.json
+
+```
+to make sure your composite is deployed try to import the model using the id into the .json
+
+Lets Build 
+
+# Feedback to ceramic team 
+
+## Composedb is awesome but if your are a newbie using ceramic there is so many dead ends in redundant errors from the cli 
